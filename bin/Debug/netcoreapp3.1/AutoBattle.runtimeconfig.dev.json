@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\piove\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\piove\\.nuget\\packages"
+    ]
+  }
+}
