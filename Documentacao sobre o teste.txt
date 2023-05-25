@@ -1,0 +1,31 @@
+script program :
+- Ajustes para variáveis ​​com letra maiúscula no início do nome.
+-Crie um método para colocar o nome do usuário, assim coloque uma variável para armazenar este nome, depois passe
+para a classe do jogador, se o nome estiver vazio, retorne e peça um nome válido.
+- Ajustado o método CreatePlayerCharacter para colocar a variável CharacterClass do jogador no lugar da antiga variável temporária, criar uma CharacterClass para o inimigo e modificar o script Character, alterando o método Character para receber uma estrutura CharacterClass para ser mais prático  o uso das class e dos atributos que elas possuem.
+- Os ajustes e melhorias citados acima são os mesmos do método CreateEnemyCharacter, porém a diferença é que é utilizado o método GetRandomInt, e não é utilizado para gerar números aleatórios.
+- Adicionado o método gridRown para selecionar as linhas de grade sobre as quais o jogador irá caminhar.
+- Adicionado o método gridColumns para selecionar as colunas da grade sobre as quais o jogador irá caminhar.
+-Ajustar o método HandleTurn if para verificar se a saúde está abaixo de < está errado pois só irá verificar se a vida está igual a 0, isso também acontece na verificação abaixo para ver a saúde do inimigo, e ambos mostram quem os derrotou, no Print the alive jogadores na tela.
+- método AlocatePlayerCharacter e AlocateEnemyCharacter, ajustei a grade deles, colocando o certo de cada um , como variável correspondente a grade deles, e ajustei o método grid.drawBattlefield() no AlocateEnemyCharacter para que sempre preencha o valor definido pelo usuário inicialmente
+
+Script Type :
+-ajustei mais a strutura de alguns struct, que faltava por um método encapsulado como no CharacterClassSpecific, e no GridBox para que funcione corretamente, alem de deixar as variáveis publicas deste métodos.
+
+Script Grid :
+-ajustei mais o valor xLenght e yLength, para que fiquem sempre com os valores escolhidos pelo usuário, assim passando este valor pro método drawBattlefield para que não de erro em desenhar o grid para ambos os players, neste método drawBattlefield , ajustei a parte de  printar o grid que ele precisava desenha coluna e linhas que não estava acontecendo isso, ajustei também a ordem que estava a linha de adicionar girdbox no método grid porque estava antes do segundo for que deveria ser dentro dele.
+
+
+Script Character :
+
+-no charcter adicionei a variável stun para o player dependendo da skill do outro player que o atingiu, adicionei a bool  isDead para verificar se ele morreu, e a variável da CharacterClassSpecific  para ter as inconformares de class do player, com ela ajuste o método Character para qual class for selecionada já muda os atributos do player, com um switch que verifica qual calss seria, e já  define atributos e skills.
+ - ajustei o script do takeDamage pra que ele retorno se o player morreu com o método died que este memétodo dito não tinha nada e deixei um print com a mensagem que morreu.
+- walkto- nete método coloquei toda logica que tinha de andar no gri, para que fosse mais fácil configurar ela, bom nela ajustei as verificações para ver se exite a lacuna para o player andar, e também na verificação de andar para cima e baixo mudei o battlefield.xLength para battlefield.yLength , alem de que nos if que verifica se existe a lacuna verifica  se esta na mesma lacuna para que possa andar em grids, que nao sao quadrados.
+-StartTurn - neste metodo, eu ajuste para verificar se este morto ou se o inimigo esta, depois verifico se não estava com efeito de stun, se estiver não faz nada, esse não estiver entra na verifica se e arqueiro, se for e se  a porcentagem for maior que o número posto  la dê 0 a 99, vai usar a habilidade, se não vai verificar se o player esta perto para atacar, se não vai para método de andar.
+- CheckCloseTargets aqui ajustei os retornos da bool para não && e sim ||, e ajustei a verificao up e down de battlefield.xLength pra battlefield.yLength, que tambem estava trocada.
+- Attack - aqui ajustei coloquei mais uma variavel pra passar para os metos SkillAtack o battlefield, alem de ter  o metodo de verificao de  porcetagen pra poder atacar com a skil, alem de  criar um metodo com a logica de ataque basico, e verificar de morreu antes de tudo.
+-SkillAtack - aqui adiciono o valor do damage  vezes o valor damageMultiplier da CharacterClassSpecific do player, para um variavel, e depois passo pro método takedamage para aplicar o dano, e verifico qual skill seria e se for alguma listada no switch acontece a ação.
+-GetRandomInt - método randomico  de número inteiros.
+-AtackProbabilityPercentageIfGreater - método para saber qual porcentagem saiu se for maior que o número que definiu sendo de 0 a 99 e verdadeiro se não falso.
+-TeleportSkill - método da skil tele porte para transportar para um local aleatório na grid.
+-EffectOfSkillAttacks - método onde verifico o nome da skill para ver e aplicar efeito da skill.

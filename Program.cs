@@ -246,7 +246,7 @@ namespace AutoBattle
                     RandomLocation.ocupied = true;
                     grid.grids[random] = RandomLocation;
                     EnemyCharacter.currentBox = grid.grids[random];
-                    grid.drawBattlefield();
+                    grid.DrawBattlefield();
                 }
                 else
                 {

@@ -29,7 +29,7 @@ namespace AutoBattle
         }
 
         // prints the matrix that indicates the tiles of the battlefield
-        public void drawBattlefield()
+        public void DrawBattlefield()
         {
             for (int i = 0; i < xLenght; i++)
             {
